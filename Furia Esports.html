@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FURIA Esports Rocket League</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Ensures all elements are sized in a consistent way */
+        }
+        body {
+            font-family: 'Roboto', sans-serif; /* Sets the font for the page */
+            background-color: #ffffff; /* White background for the page */
+            color: #333333; /* Text color */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the body takes full height of the screen */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #f4f4f4; /* Light gray background */
+            color: #333333; /* Text color */
+            padding: 25px; /* Padding inside the header */
+            display: flex;
+            align-items: center; /* Centers content vertically */
+            justify-content: center; /* Centers content horizontally */
+            gap: 20px; /* Space between items */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Adds shadow to the header */
+            position: relative; /* Allows positioning of the home button */
+        }
+
+        .home-button {
+            position: absolute;
+            left: 25px; /* Positions the home button on the left side of the header */
+        }
+
+        header img {
+            width: 50px;
+            height: 50px; /* Sizes the logo */
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #333333;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Adds shadow to the text */
+        }
+
+        /* Layout Styles */
+        main {
+            display: flex; /* Uses flexbox layout */
+            gap: 30px; /* Space between sidebar and content */
+            padding: 30px;
+            flex-grow: 1; /* Makes the main section flexible to grow */
+        }
+
+        .sidebar {
+            flex: 0 0 250px; /* Fixed width sidebar */
+            background-color: #eaeaea; /* Light gray background */
+            padding: 25px;
+            border-radius: 8px; /* Rounded corners */
+            position: sticky; /* Keeps sidebar fixed when scrolling */
+            top: 20px; /* Starts at 20px from the top */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow to the sidebar */
+        }
+
+        .sidebar h3 {
+            color: #333333;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #555555;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .sidebar a:hover {
+            color: #000000;
+            padding-left: 10px; /* Adds a left padding on hover */
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Space between sections */
+        }
+
+        /* Team Info Section */
+        .team-info {
+            background-color: #f9f9f9; /* Light background for team info */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        }
+
+        .team-info h2 {
+            color: #333333;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .team-info p {
+            font-size: 18px;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .team-info .team-logo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Makes the logo circular */
+            margin-bottom: 20px;
+        }
+
+        /* Players Section */
+        .players-section {
+            background-color: #f9f9f9; /* Light background for players section */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        }
+
+        .players-section h3 {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .players-container {
+            display: flex;
+            justify-content: space-around; /* Distributes players evenly */
+            gap: 30px; /* Space between player boxes */
+        }
+
+        .player-box {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers player information */
+            padding: 20px;
+            width: 180px; /* Fixed width for player boxes */
+            text-align: center; /* Centers text inside the box */
+        }
+
+        .player-box img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* Circular profile picture */
+            margin-bottom: 15px;
+            border: 2px solid #cccccc; /* Border around the image */
+        }
+
+        .player-box span {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #f4f4f4; /* Light gray background */
+            color: #666666;
+            text-align: center;
+            padding: 16px;
+            font-size: 14px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow to the footer */
+        }
+
+        /* Background Image Styles */
+        .background {
+            background: url("Image Folder/ROCKET_LEAGUE_GIF.jpg"); /* Background gif */
+            background-size: cover; /* Ensures the background covers the entire page */
+            width: 100%;
+            height: 100%;
+            position: fixed; /* Fixed position for background */
+            z-index: -1; /* Places background behind the content */
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Image -->
+    <div class="background"></div>
+
+    <!-- Header Section -->
+    <header>
+        <!-- Home Button -->
+        <a href="index.html" class="home-button" style="display: flex; align-items: center;">
+            <img src="Image Folder/HOME_LOGO.png" alt="Home Icon" style="width: 50px; height: 50px; margin-right: 15px;">
+        </a>
+        <h1>Rocket League</h1>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <h3>Navigation</h3>
+            <!-- Links to other pages -->
+            <a href="leaderboards.html">Leaderboard</a>
+            <a href="Team Falcons.html">Team Falcons Info</a>
+            <a href="G2 Esports.html">G2 Esports Info</a>
+            <a href="Gen.G Esports.html">Gen.G Esports Info</a>
+            <a href="Vitality Esports.html">Vitality Esports Info</a>
+            <a href="Team Liquid.html">Team Liquid Info</a>
+            <a href="Furia Esports.html">Furia Esports Info</a>
+            <a href="Trailer.html">Trailer</a>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="content">
+            <!-- Team Info Section -->
+            <section class="team-info">
+                <h2>FURIA Esports Rocket League</h2>
+                <div class="team-logo">
+                    <img src="Image Folder/FURIA_LOGO.png" alt="FURIA Esports Logo">
+                </div>
+                <p>FURIA Esports is a top-tier Rocket League team, known for their aggressive playstyle and dynamic strategies.</p>
+                <p>The team has achieved significant milestones in both regional and international tournaments, becoming a powerhouse in the competitive scene.</p>
+                <p>With an exceptional roster, FURIA Esports continues to leave their mark in the world of Rocket League.</p>
+                <p><strong>Establishment Year:</strong> 2017</p>
+            </section>
+
+            <!-- Players Section -->
+            <section class="players-section">
+                <h3>Meet the Players</h3>
+                <div class="players-container">
+                    <!-- Player 1 -->
+                    <div class="player-box">
+                        <img src="Image Folder/YANXNZ_PFP.jpg" alt="Player 1">
+                        <span>FUR Yanxnz</span>
+                    </div>
+                    <!-- Player 2 -->
+                    <div class="player-box">
+                        <img src="Image Folder/DRUFINHO_PFP.jpg" alt="Player 2">
+                        <span>FUR Drufinho</span>
+                    </div>
+                    <!-- Player 3 -->
+                    <div class="player-box">
+                        <img src="Image Folder/LOSTT_PFP.jpg" alt="Player 3">
+                        <span>FUR Lostt</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 Rocket League | All Rights Reserved.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen.G Esports Rocket League</title>
+    <style>
+        /* Global Styles: This section ensures consistent styling for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Sets the font for the whole page */
+            background-color: #ffffff; /* White background */
+            color: #333333; /* Dark text color */
+            display: flex;
+            flex-direction: column; /* Stacks content vertically */
+            min-height: 100vh; /* Ensures body stretches to full viewport height */
+        }
+
+        /* Header Styling: This part controls the header at the top of the page */
+        header {
+            background-color: #f4f4f4; /* Light gray background */
+            color: #333333; /* Dark text color */
+            padding: 25px; /* Adds spacing inside the header */
+            display: flex;
+            align-items: center; /* Vertically center-aligns items */
+            justify-content: center; /* Horizontally centers content */
+            gap: 20px; /* Spacing between logo and title */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Adds a soft shadow for depth */
+            position: relative; /* Positions the home button absolutely within the header */
+        }
+
+        .home-button {
+            position: absolute; /* Positions the home button in a fixed place */
+            left: 25px; /* Keeps it 25px from the left edge */
+        }
+
+        header img {
+            width: 50px; /* Defines the width of the logo */
+            height: 50px; /* Defines the height of the logo */
+        }
+
+        header h1 {
+            font-size: 32px; /* Large font size for the title */
+            font-weight: 600; /* Bold title */
+            margin: 0; /* Removes default margin */
+            color: #333333; /* Dark text color */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Adds subtle shadow to text */
+        }
+
+        /* Layout Styles: Controls the overall layout of the main content */
+        main {
+            display: flex;
+            gap: 30px; /* Adds space between sidebar and content */
+            padding: 30px; /* Adds padding around the content */
+            flex-grow: 1; /* Allows the main area to grow and fill the screen */
+        }
+
+        /* Sidebar Styles: Controls the sidebar navigation on the left */
+        .sidebar {
+            flex: 0 0 250px; /* Fixes the sidebar width to 250px */
+            background-color: #eaeaea; /* Light gray background */
+            padding: 25px; /* Adds space inside the sidebar */
+            border-radius: 8px; /* Rounds the corners of the sidebar */
+            position: sticky; /* Keeps sidebar fixed during scrolling */
+            top: 20px; /* Keeps it 20px from the top */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+        }
+
+        .sidebar h3 {
+            color: #333333; /* Dark text color */
+            font-size: 22px; /* Sets title size */
+            margin-bottom: 20px; /* Space between the title and links */
+        }
+
+        .sidebar a {
+            display: block; /* Makes each link take up the full width */
+            color: #555555; /* Medium dark color for links */
+            text-decoration: none; /* Removes underline from links */
+            font-size: 16px; /* Sets font size for links */
+            margin-bottom: 15px; /* Adds space between each link */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .sidebar a:hover {
+            color: #000000; /* Darkens the text on hover */
+            padding-left: 10px; /* Indents the link on hover */
+        }
+
+        /* Content Styling: Controls the main content area */
+        .content {
+            flex-grow: 1; /* Expands content area to fill available space */
+            display: flex;
+            flex-direction: column; /* Stacks sections vertically */
+            gap: 25px; /* Adds space between sections */
+        }
+
+        /* Team Info Section */
+        .team-info {
+            background-color: #f9f9f9; /* Light gray background */
+            padding: 30px; /* Adds padding inside the section */
+            border-radius: 8px; /* Rounds the corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+        }
+
+        .team-info h2 {
+            color: #333333; /* Dark text color */
+            font-size: 26px; /* Sets the team name size */
+            margin-bottom: 20px; /* Adds space under the title */
+        }
+
+        .team-info p {
+            font-size: 18px; /* Sets font size for text */
+            color: #555555; /* Slightly lighter text color */
+            line-height: 1.6; /* Increases line spacing for readability */
+            margin-bottom: 20px; /* Adds space below each paragraph */
+        }
+
+        .team-info .team-logo img {
+            width: 150px; /* Logo size */
+            height: 150px; /* Logo size */
+            border-radius: 50%; /* Makes the logo circular */
+            margin-bottom: 20px; /* Adds space below the logo */
+        }
+
+        /* Players Section Styling */
+        .players-section {
+            background-color: #f9f9f9; /* Light gray background */
+            padding: 30px; /* Adds padding inside the section */
+            border-radius: 8px; /* Rounds the corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow */
+        }
+
+        .players-section h3 {
+            font-size: 24px; /* Player section title size */
+            color: #333333; /* Dark text color */
+            margin-bottom: 20px; /* Adds space below the title */
+        }
+
+        .players-container {
+            display: flex;
+            justify-content: space-around; /* Spaces players evenly */
+            gap: 30px; /* Adds space between players */
+        }
+
+        .player-box {
+            background-color: #ffffff; /* White background */
+            border: 1px solid #cccccc; /* Light border around player box */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+            display: flex;
+            flex-direction: column; /* Stacks the player image and name vertically */
+            align-items: center; /* Centers content inside the box */
+            padding: 20px; /* Adds space inside the box */
+            width: 180px; /* Fixes width of each player box */
+            text-align: center; /* Centers text */
+        }
+
+        .player-box img {
+            width: 100px; /* Player image size */
+            height: 100px; /* Player image size */
+            border-radius: 50%; /* Makes the image circular */
+            margin-bottom: 15px; /* Adds space below the image */
+            border: 2px solid #cccccc; /* Light border around the image */
+        }
+
+        .player-box span {
+            font-size: 16px; /* Font size for player name */
+            font-weight: 600; /* Makes the name bold */
+            color: #333333; /* Dark text color */
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #f4f4f4; /* Light gray background */
+            color: #666666; /* Light text color */
+            text-align: center; /* Centers footer text */
+            padding: 16px; /* Adds padding inside the footer */
+            font-size: 14px; /* Sets font size */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow at the top of footer */
+        }
+
+        /* Background Styling */
+        .background {
+            background: url("Image Folder/ROCKET_LEAGUE_GIF.jpg"); /* Background GIF */
+            background-size: cover; /* Ensures the background covers the whole screen */
+            width: 100%; /* Ensures background takes up full width */
+            height: 100%; /* Ensures background takes up full height */
+            position: fixed; /* Keeps it in place while scrolling */
+            z-index: -1; /* Layers the background behind all other content */
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div> <!-- Background GIF -->
+
+    <header>
+        <a href="index.html" class="home-button">
+            <img src="Image Folder/HOME_LOGO.png" alt="Home Icon"> <!-- Home Button with logo -->
+        </a>
+        <h1>Rocket League</h1>
+    </header>
+
+    <main>
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <h3>Navigation</h3>
+            <a href="leaderboards.html">Leaderboard</a>
+            <a href="Team Falcons.html">Team Falcons Info</a>
+            <a href="G2 Esports.html">G2 Esports Info</a>
+            <a href="Gen.G Esports.html">Gen.G Esports Info</a>
+            <a href="Vitality Esports.html">Vitality Esports Info</a>
+            <a href="Team Liquid.html">Team Liquid Info</a>
+            <a href="Furia Esports.html">Furia Esports Info</a>
+            <a href="Trailer.html">Trailer</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <section class="team-info">
+                <h2>Gen.G Esports Rocket League</h2>
+                <div class="team-logo">
+                    <img src="Image Folder/GENG_LOGO.png" alt="Gen.G Esports Logo">
+                </div>
+                <p>Gen.G Esports is a rising powerhouse in the Rocket League esports scene, known for their innovative strategies and high-level gameplay.</p>
+                <p>With a talented roster and a strong presence in international tournaments, Gen.G has quickly become a fan favorite.</p>
+                <p>They continue to impress fans and competitors alike with their dedication and skill on the virtual pitch.</p>
+                <p><strong>Establishment Year:</strong> 2017</p>
+            </section>
+
+            <!-- Players Section -->
+            <section class="players-section">
+                <h3>Meet the Players</h3>
+                <div class="players-container">
+                    <div class="player-box">
+                        <img src="Image Folder/CHEESE_PFP.jpg" alt="Player 1">
+                        <span>Gen.G Cheese</span>
+                    </div>
+                    <div class="player-box">
+                        <img src="Image Folder/RETALS_PFP.jpg" alt="Player 2">
+                        <span>Gen.G Retals</span>
+                    </div>
+                    <div class="player-box">
+                        <img src="Image Folder/MAJICBEAR_PFP.jpg" alt="Player 3">
+                        <span>Gen.G MaJicBear</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Rocket League | All Rights Reserved.
+    </footer>
+</body>
+</html>

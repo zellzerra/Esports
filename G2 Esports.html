@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G2 Esports Rocket League</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;  /* Resets margin for all elements */
+            padding: 0; /* Resets padding for all elements */
+            box-sizing: border-box; /* Makes padding and border part of element's total width and height */
+        }
+        body {
+            font-family: 'Roboto', sans-serif; /* Sets the font */
+            background-color: #ffffff; /* White background color */
+            color: #333333; /* Dark gray text color */
+            display: flex; /* Enables flexbox layout */
+            flex-direction: column; /* Arranges items vertically */
+            min-height: 100vh; /* Ensures body takes full height of viewport */
+        }
+
+        /* Header */
+        header {
+            background-color: #f4f4f4; /* Light gray background for header */
+            color: #333333; /* Dark gray text */
+            padding: 25px; /* Adds padding inside header */
+            display: flex; /* Uses flexbox layout */
+            align-items: center; /* Aligns items vertically in the center */
+            justify-content: center; /* Centers content horizontally */
+            gap: 20px; /* Adds space between elements */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Adds subtle shadow for a 3D effect */
+            position: relative; /* Allows absolute positioning of elements inside the header */
+        }
+
+        .home-button {
+            position: absolute; /* Positions the button absolutely inside header */
+            left: 25px; /* Positions the button 25px from the left */
+        }
+
+        header img {
+            width: 50px; /* Sets the width of the image */
+            height: 50px; /* Sets the height of the image */
+        }
+
+        header h1 {
+            font-size: 32px; /* Sets font size */
+            font-weight: 600; /* Sets font weight */
+            margin: 0; /* Removes margin */
+            color: #333333; /* Dark gray text color */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Adds subtle shadow to text */
+        }
+
+        /* Layout */
+        main {
+            display: flex; /* Uses flexbox layout */
+            gap: 30px; /* Adds space between elements */
+            padding: 30px; /* Adds padding inside the main section */
+            flex-grow: 1; /* Allows main content to grow and take up remaining space */
+        }
+
+        .sidebar {
+            flex: 0 0 250px; /* Sidebar takes up fixed width of 250px */
+            background-color: #eaeaea; /* Light gray background */
+            padding: 25px; /* Adds padding inside sidebar */
+            border-radius: 8px; /* Rounds corners of sidebar */
+            position: sticky; /* Sidebar stays in view when scrolling */
+            top: 20px; /* Keeps sidebar 20px from top of viewport */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow around sidebar */
+        }
+
+        .sidebar h3 {
+            color: #333333; /* Dark gray text */
+            font-size: 22px; /* Sets font size */
+            margin-bottom: 20px; /* Adds space below the heading */
+        }
+
+        .sidebar a {
+            display: block; /* Makes links block elements for better styling */
+            color: #555555; /* Medium gray text */
+            text-decoration: none; /* Removes underline from links */
+            font-size: 16px; /* Sets font size */
+            margin-bottom: 15px; /* Adds space below each link */
+            transition: all 0.3s ease; /* Smooth transition effect for hover */
+        }
+
+        .sidebar a:hover {
+            color: #000000; /* Changes color to black when hovered */
+            padding-left: 10px; /* Adds padding on the left when hovered */
+        }
+
+        .content {
+            flex-grow: 1; /* Makes content area grow and take up remaining space */
+            display: flex; /* Uses flexbox layout */
+            flex-direction: column; /* Arranges items vertically */
+            gap: 25px; /* Adds space between elements */
+        }
+
+        /* Team Info Section */
+        .team-info {
+            background-color: #f9f9f9; /* Light gray background */
+            padding: 30px; /* Adds padding inside team-info */
+            border-radius: 8px; /* Rounds corners of team-info */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow around team-info */
+        }
+
+        .team-info h2 {
+            color: #333333; /* Dark gray text */
+            font-size: 26px; /* Sets font size */
+            margin-bottom: 20px; /* Adds space below the heading */
+        }
+
+        .team-info p {
+            font-size: 18px; /* Sets font size */
+            color: #555555; /* Medium gray text */
+            line-height: 1.6; /* Increases line height for readability */
+            margin-bottom: 20px; /* Adds space below each paragraph */
+        }
+
+        .team-info .team-logo img {
+            width: 150px; /* Sets width of team logo */
+            height: 150px; /* Sets height of team logo */
+            border-radius: 50%; /* Makes logo circular */
+            margin-bottom: 20px; /* Adds space below the logo */
+        }
+
+        /* Players Section */
+        .players-section {
+            background-color: #f9f9f9; /* Light gray background */
+            padding: 30px; /* Adds padding inside players section */
+            border-radius: 8px; /* Rounds corners of players section */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow around players section */
+        }
+
+        .players-section h3 {
+            font-size: 24px; /* Sets font size */
+            color: #333333; /* Dark gray text */
+            margin-bottom: 20px; /* Adds space below the heading */
+        }
+
+        .players-container {
+            display: flex; /* Uses flexbox layout */
+            justify-content: space-around; /* Distributes players evenly across available space */
+            gap: 30px; /* Adds space between players */
+        }
+
+        .player-box {
+            background-color: #ffffff; /* White background for player boxes */
+            border: 1px solid #cccccc; /* Light gray border around each box */
+            border-radius: 8px; /* Rounds corners of player boxes */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow around each player box */
+            display: flex; /* Uses flexbox layout for player boxes */
+            flex-direction: column; /* Arranges items vertically inside player box */
+            align-items: center; /* Centers content inside player box */
+            padding: 20px; /* Adds padding inside player boxes */
+            width: 180px; /* Sets fixed width for each player box */
+            text-align: center; /* Centers text inside the box */
+        }
+
+        .player-box img {
+            width: 100px; /* Sets width of player profile picture */
+            height: 100px; /* Sets height of player profile picture */
+            border-radius: 50%; /* Makes player profile picture circular */
+            margin-bottom: 15px; /* Adds space below the profile picture */
+            border: 2px solid #cccccc; /* Adds border around player image */
+        }
+
+        .player-box span {
+            font-size: 16px; /* Sets font size */
+            font-weight: 600; /* Sets font weight */
+            color: #333333; /* Dark gray text */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f4f4f4; /* Light gray background for footer */
+            color: #666666; /* Medium gray text */
+            text-align: center; /* Centers text in footer */
+            padding: 16px; /* Adds padding inside footer */
+            font-size: 14px; /* Sets font size */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow above footer */
+        }
+
+        .team-list img {
+            width: 40px; /* Sets size of team images */
+            height: 40px; /* Sets size of team images */
+            margin-right: 1em; /* Adds space to the right of the image */
+            border-radius: 50%; /* Makes images circular */
+            border: 1px solid #cccccc; /* Adds border around the images */
+        }
+
+        /* Background */
+        .background {
+            background: url("Image Folder/ROCKET_LEAGUE_GIF.jpg"); /* Uses a GIF for the background */
+            background-size: cover; /* Ensures background covers the entire viewport */
+            width: 100%; /* Ensures background covers full width */
+            height: 100%; /* Ensures background covers full height */
+            position: fixed; /* Fixes background in place */
+            z-index: -1; /* Ensures background stays behind other content */
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div> <!-- Background GIF -->
+
+    <header>
+        <!-- Home button with logo -->
+        <a href="index.html" class="home-button" style="display: flex; align-items: center;">
+            <img src="Image Folder/HOME_LOGO.png" alt="Home Icon" style="width: 50px; height: 50px; margin-right: 15px;">
+        </a>
+        <h1>Rocket League</h1> <!-- Main header title -->
+    </header>
+    <main>
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <h3>Navigation</h3> <!-- Sidebar header -->
+            <!-- Links to different pages -->
+            <a href="leaderboards.html">Leaderboard</a>
+            <a href="Team Falcons.html">Team Falcons Info</a>
+            <a href="G2 Esports.html">G2 Esports Info</a>
+            <a href="Gen.G Esports.html">Gen.G Esports Info</a>
+            <a href="Vitality Esports.html">Vitality Esports Info</a>
+            <a href="Team Liquid.html">Team Liquid Info</a>
+            <a href="Furia Esports.html">Furia Esports Info</a>
+            <a href="Trailer.html">Trailer</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Team Info Section -->
+            <section class="team-info">
+                <h2>G2 Esports Rocket League</h2>
+                <div class="team-logo">
+                    <img src="Image Folder/G2_LOGO.png" alt="G2 Esports Logo"> <!-- Team logo -->
+                </div>
+                <p>G2 Esports is one of the most iconic and dominant teams in the Rocket League esports scene.</p>
+                <p>Known for their strategic plays and incredible synergy, G2 has made a lasting impact in numerous regional and international tournaments.</p>
+                <p>Their talented roster is celebrated worldwide, and they continue to be a top contender in every competition they enter.</p>
+                <p><strong>Establishment Year:</strong> 2015</p> <!-- Team establishment year -->
+            </section>
+
+            <!-- Players Section -->
+            <section class="players-section">
+                <h3>Meet the Players</h3>
+                <div class="players-container">
+                    <!-- Player 1 -->
+                    <div class="player-box">
+                        <img src="Image Folder/BEASTMODE_PFP.png" alt="Player 1">
+                        <span>G2 Beastmode</span>
+                    </div>
+                    <!-- Player 2 -->
+                    <div class="player-box">
+                        <img src="Image Folder/DANIEL_PFP.png" alt="Player 2">
+                        <span>G2 Daniel</span>
+                    </div>
+                    <!-- Player 3 -->
+                    <div class="player-box">
+                        <img src="Image Folder/ATOMIC_PFP.png" alt="Player 3">
+                        <span>G2 Atomic</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 Rocket League | All Rights Reserved.
+    </footer>
+</body>
+</html>

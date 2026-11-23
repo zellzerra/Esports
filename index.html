@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket League</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+        }
+        body {
+            font-family: 'Roboto', sans-serif; /* Sets the font for the entire body */
+            background-color: #ffffff; /* Sets background color to white for clean and formal look */
+            color: #333333; /* Sets text color to dark gray for readability */
+            display: flex;
+            flex-direction: column; /* Align elements vertically */
+            min-height: 100vh; /* Ensures the body covers the full height of the viewport */
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #f4f4f4; /* Light gray background for the header */
+            color: #333333; /* Dark gray text color for header */
+            padding: 25px; /* Adds padding to the header */
+            display: flex; /* Flexbox for layout */
+            align-items: center; /* Centers content vertically */
+            justify-content: center; /* Centers content horizontally */
+            gap: 20px; /* Spacing between elements */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+            position: relative; /* Allows positioning of child elements like the home button */
+        }
+
+        /* Home Button */
+        .home-button {
+            position: absolute; /* Position the home button outside the normal flow */
+            left: 25px; /* Moves the button to the left */
+        }
+
+        /* Home Button Image */
+        header img {
+            width: 50px; /* Defines the width of the home button image */
+            height: 50px; /* Defines the height of the home button image */
+            border-radius: 0; /* No border-radius to keep it square */
+            border: none; /* Removes any border */
+        }
+
+        /* Header Title */
+        header h1 {
+            font-size: 32px; /* Sets the font size */
+            font-weight: 600; /* Semi-bold font for prominence */
+            margin: 0; /* Removes any margin */
+            color: #333333; /* Dark gray text color */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow for text */
+        }
+
+        /* Main Layout */
+        main {
+            display: flex; /* Flexbox layout for main content */
+            gap: 30px; /* Adds space between sidebar and content */
+            padding: 30px; /* Padding around the content */
+            flex-grow: 1; /* Ensures content area takes up remaining space */
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            flex: 0 0 250px; /* Fixed sidebar width */
+            background-color: #eaeaea; /* Light gray background */
+            padding: 25px; /* Padding inside sidebar */
+            border-radius: 8px; /* Rounded corners */
+            position: sticky; /* Sidebar stays in place when scrolling */
+            top: 20px; /* Keeps it 20px from the top */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow around sidebar */
+        }
+
+        .sidebar h3 {
+            color: #333333; /* Dark gray color for sidebar title */
+            font-size: 22px; /* Slightly larger text for the heading */
+            margin-bottom: 20px; /* Adds space below the heading */
+        }
+
+        .sidebar h4 {
+            color: #333333; /* Dark gray color for subheading */
+            font-size: 19px; /* Sets font size for subheading */
+            margin-bottom: 20px; /* Adds space below subheading */
+        }
+
+        /* Sidebar Links */
+        .sidebar a {
+            display: block; /* Makes each link block-level to occupy full width */
+            color: #555555; /* Neutral link color */
+            text-decoration: none; /* Removes underline from links */
+            font-size: 16px; /* Sets font size */
+            margin-bottom: 15px; /* Adds space between links */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .sidebar a:hover {
+            color: #000000; /* Changes color to black on hover */
+            padding-left: 10px; /* Indentation effect on hover */
+        }
+
+        /* Content Area Styling */
+        .content {
+            flex-grow: 1; /* Ensures content area takes up the remaining space */
+            display: flex; /* Flexbox layout for content */
+            flex-direction: column; /* Aligns content vertically */
+            gap: 25px; /* Adds space between sections */
+        }
+
+        /* Team Section Styling */
+        .team-section {
+            background-color: #f9f9f9; /* Light background for the team section */
+            padding: 30px; /* Padding inside the team section */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .team-section h2 {
+            color: #333333; /* Dark gray color for the section title */
+            font-size: 26px; /* Large font size for emphasis */
+            margin-bottom: 20px; /* Adds space below the title */
+        }
+
+        /* Team Container */
+        .team-container {
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Centers teams horizontally */
+            flex-wrap: wrap; /* Allows wrapping of team boxes */
+            gap: 25px; /* Adds space between team boxes */
+            padding-top: 20px; /* Padding at the top */
+        }
+
+        /* Individual Team Box Styling */
+        .team-box {
+            background-color: #ffffff; /* White background for each team box */
+            border: 1px solid #cccccc; /* Light gray border */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            display: flex; /* Flexbox layout for team content */
+            flex-direction: column; /* Stacks elements vertically */
+            align-items: center; /* Centers content horizontally */
+            padding: 20px; /* Padding inside the box */
+            width: 180px; /* Fixed width for each team box */
+            text-align: center; /* Centers the text */
+        }
+
+        /* Team Box Image */
+        .team-box img {
+            width: 100px; /* Image width */
+            height: 100px; /* Image height */
+            border-radius: 50%; /* Circular image */
+            margin-bottom: 15px; /* Adds space below the image */
+            border: 2px solid #cccccc; /* Light border around the image */
+        }
+
+        /* Team Box Text */
+        .team-box span {
+            font-size: 16px; /* Font size for the team name */
+            font-weight: 600; /* Semi-bold text for emphasis */
+            color: #333333; /* Dark gray color for text */
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #f4f4f4; /* Light gray background */
+            color: #666666; /* Lighter gray text for footer */
+            text-align: center; /* Centers the text */
+            padding: 16px; /* Padding inside the footer */
+            font-size: 14px; /* Small text size for the footer */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow above footer */
+        }
+
+        /* Footer Team List Images */
+        .team-list img {
+            width: 40px; /* Small image size for logos */
+            height: 40px; /* Matching height */
+            margin-right: 1em; /* Adds space between logos */
+            border-radius: 50%; /* Circular logos */
+            border: 1px solid #cccccc; /* Light border */
+        }
+
+        /* Background Styling */
+        .background {
+            background: url("Image Folder/ROCKET_LEAGUE_GIF.jpg"); /* Sets background as a gif */
+            background-size: cover; /* Ensures the background covers the whole page */
+            width: 100%; /* Full width of the page */
+            height: 100%; /* Full height of the page */
+            position: fixed; /* Keeps background fixed when scrolling */
+            z-index: -1; /* Layers the background behind other elements */
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    
+    <header>
+        <!-- Home Button Link -->
+        <a href="index.html" class="home-button" style="display: flex; align-items: center;">
+            <img src="Image Folder/HOME_LOGO.png" alt="Home Icon" style="width: 50px; height: 50px; margin-right: 15px;">
+        </a>
+        <h1>Rocket League</h1>
+    </header>
+
+    <main>
+        <!-- Sidebar with Links -->
+        <div class="sidebar">
+            <h3>Navigation</h3>
+            <a href="leaderboards.html">Leaderboard</a> <!-- Link to the Leaderboard page -->
+            <a href="Team Falcons.html">Team Falcons Info</a> <!-- Link to the Falcons page -->
+            <a href="G2 Esports.html">G2 Esports Info</a> <!-- Link to the G2 Esports page -->
+            <a href="Gen.G Esports.html">Gen.G Esports Info</a> <!-- Link to the Gen.G Esports page -->
+            <a href="Vitality Esports.html">Vitality Esports Info</a> <!-- Link to the Vitalitys page -->
+            <a href="Team Liquid.html">Team Liquid Info</a> <!-- Link to the Team Liquids page -->
+            <a href="Furia Esports.html">Furia Esports Info</a> <!-- Link to the Furia Esports page -->
+            <a href="Trailer.html">Trailer</a> <!-- Link to Trailer Page -->
+        </div>
+        
+        <!-- Main Content Section -->
+        <div class="content">
+            <section class="team-section">
+                <h2>Rocket League Teams┃6/31 Teams</h2>
+                <div class="team-container">
+                    <!-- Team Boxes -->
+                    <div class="team-box">
+                        <img src="Image Folder/FALCONS_LOGO.png" alt="Falcons Logo">
+                        <span>Team Falcons</span>
+                        <span>EST. 2017</span>
+                    </div>
+                    <div class="team-box">
+                        <img src="Image Folder/G2_LOGO.png" alt="G2 Logo">
+                        <span>G2 Esports</span>
+                        <span>EST. 2013</span>
+                    </div>
+                    <div class="team-box">
+                        <img src="Image Folder/GENG_LOGO.png" alt="GenG Logo">
+                        <span>Gen.G Esports</span>
+                        <span>EST. 2017</span>
+                    </div>
+                    <div class="team-box">
+                        <img src="Image Folder/VITALITY_LOGO.png" alt="Vitality Logo">
+                        <span>Vitality Esports</span>
+                        <span>EST. 2013</span>
+                    </div>
+                    <div class="team-box">
+                        <img src="Image Folder/LIQUID_LOGO.png" alt="Liquid Logo">
+                        <span>Team Liquid</span>
+                        <span>EST. 2000</span>
+                    </div>
+                    <div class="team-box">
+                        <img src="Image Folder/FURIA_LOGO.png" alt="Furia Logo">
+                        <span>Furia Esports</span>
+                        <span>EST. 2017</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 Rocket League | All Rights Reserved.
+    </footer>
+
+</body>
+</html>

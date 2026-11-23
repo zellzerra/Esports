@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Falcons Rocket League</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff; 
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: #f4f4f4;
+            color: #333333;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .home-button {
+            position: absolute;
+            left: 25px;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            color: #333333;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Layout */
+        main {
+            display: flex;
+            gap: 30px;
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .sidebar {
+            flex: 0 0 250px;
+            background-color: #eaeaea;
+            padding: 25px;
+            border-radius: 8px;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3, .sidebar h4 {
+            color: #333333;
+            font-size: 22px; 
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #555555;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            color: #000000;
+            padding-left: 10px;
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Team Info Section */
+        .team-info, .players-section {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-info h2, .players-section h3 {
+            color: #333333;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .team-info p {
+            font-size: 18px;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .team-info .team-logo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .players-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .player-box {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            width: 180px;
+            text-align: center;
+        }
+
+        .player-box img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid #cccccc;
+        }
+
+        .player-box span {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f4f4f4;
+            color: #666666;
+            text-align: center;
+            padding: 16px;
+            font-size: 14px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-list img {
+            width: 40px;
+            height: 40px;
+            margin-right: 1em;
+            border-radius: 50%;
+            border: 1px solid #cccccc;
+        }
+
+        .background {
+            background: url("Image Folder/ROCKET_LEAGUE_GIF.jpg");
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+
+    <header>
+        <a href="index.html" class="home-button" style="display: flex; align-items: center;">
+            <img src="Image Folder/HOME_LOGO.png" alt="Home Icon">
+        </a>
+        <h1>Rocket League</h1>
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <h3>Navigation</h3>
+            <a href="leaderboards.html">Leaderboard</a>
+            <a href="Team Falcons.html">Team Falcons Info</a>
+            <a href="G2 Esports.html">G2 Esports Info</a>
+            <a href="Gen.G Esports.html">Gen.G Esports Info</a>
+            <a href="Vitality Esports.html">Vitality Esports Info</a>
+            <a href="Team Liquid.html">Team Liquid Info</a>
+            <a href="Furia Esports.html">Furia Esports Info</a>
+            <a href="Trailer.html">Trailer</a>
+        </div>
+
+        <div class="content">
+            <section class="team-info">
+                <h2>Team Falcons Rocket League</h2>
+                <div class="team-logo">
+                    <img src="Image Folder/FALCONS_LOGO.png" alt="Team Falcons Logo">
+                </div>
+                <p>Team Falcons is one of the most competitive and talented teams in the Rocket League esports scene.</p>
+                <p>The team has participated in various top-tier tournaments and has made a name for themselves with their performances in both regional and international events.</p>
+                <p>With their roster consisting of some of the best players in the region, Team Falcons continues to grind for greatness in every competition they enter.</p>
+                <p><strong>Establishment Year:</strong> 2017</p>
+            </section>
+
+            <section class="players-section">
+                <h3>Meet the Players</h3>
+                <div class="players-container">
+                    <div class="player-box">
+                        <img src="Image Folder/TRK_PFP.jpg" alt="Player 1">
+                        <span>FLCN TRK</span>
+                    </div>
+                    <div class="player-box">
+                        <img src="Image Folder/RW9_PFP.jpg" alt="Player 2">
+                        <span>FLCN Rw9</span>
+                    </div>
+                    <div class="player-box">
+                        <img src="Image Folder/KIILEERRZ_PFP.jpg" alt="Player 3">
+                        <span>FLCN Killeerrz</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Rocket League | All Rights Reserved.
+    </footer>
+</body>
+</html>
